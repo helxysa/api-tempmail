@@ -11,20 +11,6 @@ class EmailController {
         });
     }
 
-    async getApiInfo(req, res) {
-        return res.json({
-            name: 'API de Email Temporário',
-            version: '1.0.0',
-            description: 'API para criação e gerenciamento de emails temporários',
-            endpoints: {
-                '/': 'Informações da API',
-                '/email': 'Criar novo email temporário',
-                '/email/:email/:sid': 'Listar emails recebidos',
-                '/email/:email/:sid/:emailId': 'Buscar conteúdo de um email específico'
-            }
-        });
-    }
-
     async createEmail(req, res) {
         try {
             const response = await this.axiosInstance.get(`${this.baseUrl}?f=get_email_address`);
