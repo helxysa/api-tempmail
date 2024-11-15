@@ -8,11 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/email', emailRoutes);
-
-app.get('/', (req, res) => {
-    res.json({ message: 'API de Email Temporário' });
-});
+app.use('/', emailRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
